@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             myDay = dayOfMonth;
             myMonth = month;
             myYear = year;
-            String massage = "Date is " + myDay + " day " + myMonth + " month " + myYear + " year";
+            String massage = "Date is " + myDay + " day of " + ((myMonth + 1) > 9 ? myMonth + 1 : ("0" + (myMonth + 1))) + " month of " + myYear + " year";
             tvDate.setText(massage);
         }
     };
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_DATE) {
             DatePickerDialog datePickerDialog = new DatePickerDialog(
-                    this, myCallBack, myYear, myMonth, myDay
+                    this, myCallBack, myYear, --myMonth, myDay
             );
             return datePickerDialog;
         }
